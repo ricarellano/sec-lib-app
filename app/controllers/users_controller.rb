@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: [:show]
   def index
     @users = User.all
+    render :index
   end
 
   def new
     # we make a new user
     # to pass to the form view later
     @user = User.new
+    render :new
   end
 
 
@@ -18,6 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
+    render :show
   end
 
   private

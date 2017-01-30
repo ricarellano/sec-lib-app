@@ -1,10 +1,12 @@
 class LibrariesController < ApplicationController
   def index
     @libraries = Library.all
+    render :index
   end
 
   def new
     @library = Library.new
+    render :new
   end
 
   def create
@@ -14,6 +16,7 @@ class LibrariesController < ApplicationController
 
   def show
     @library = Library.find_by_id(params[:id])
+    render :show
   end
 
    private
